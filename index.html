@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Circle of Zen – Achtsam zeichnen. Präzise entspannen.</title>
+  <meta name="description" content="Circle of Zen ist eine minimalistische Achtsamkeits‑App: Freihand‑Kreise, Dreiecke und Quadrate zeichnen, Genauigkeit messen und im Trainingsmodus fokussiert üben.">
+  <meta name="theme-color" content="#f5efe6">
+  <meta property="og:title" content="Circle of Zen – Achtsam zeichnen">
+  <meta property="og:description" content="Zeichne Ensō‑Kreise und weitere Formen, steigere deine Genauigkeit und finde Ruhe im Alltag.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://circleofzen.app/">
+  <style>
+    :root{
+      --bg:#f8f4ed;
+      --card:#ffffff;
+      --ink:#1e1e1e;
+      --muted:#6b6b6b;
+      --line:#ece5d8;
+      --accent:#c49a6c; /* warm beige */
+      --accent-ink:#2b2116;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--ink); background:var(--bg); line-height:1.6;
+      -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+    }
+    a{color:#0a84ff; text-decoration:none} a:hover{text-decoration:underline}
+    .container{max-width:1040px; margin:0 auto; padding:0 20px}
+    header.site{
+      position:sticky; top:0; backdrop-filter:saturate(140%) blur(8px);
+      background:color-mix(in lab, var(--bg) 75%, white); border-bottom:1px solid var(--line);
+      z-index:10;
+    }
+    .nav{display:flex; align-items:center; justify-content:space-between; padding:12px 0}
+    .brand{display:flex; gap:12px; align-items:center}
+    .logo{
+      width:32px; height:32px; border-radius:999px; background: radial-gradient(circle at 30% 35%, #e9dcc9, #d2bfa1);
+      box-shadow: inset 0 0 0 3px #d7c9b6, inset 0 0 0 6px rgba(0,0,0,.02);
+    }
+    .brand h1{font-size:18px; margin:0}
+    nav a{margin:0 8px; color:var(--ink); font-size:15px}
+    .cta{display:inline-flex; align-items:center; gap:8px; background:var(--accent); color:#fff;
+         border:1px solid color-mix(in lab, var(--accent), black 12%); padding:10px 14px; border-radius:999px;
+         box-shadow: 0 4px 14px rgba(0,0,0,.06); text-decoration:none; font-weight:600}
+    .cta:hover{filter:brightness(0.98)}
+    .ghost{background:transparent; color:var(--accent-ink); border:1px solid var(--accent);}
+    .hero{padding:72px 0 42px}
+    .hero h2{font-size:40px; line-height:1.15; margin:0 0 12px}
+    .hero p{font-size:18px; color:var(--muted); margin:0 0 20px}
+    .badges{display:flex; gap:12px; flex-wrap:wrap}
+    .badge-appstore{display:inline-flex; align-items:center; gap:10px; background:var(--ink); color:#fff;
+      padding:10px 14px; border-radius:12px; font-weight:600; border:1px solid rgba(0,0,0,.2)}
+    .badge-appstore svg{width:20px; height:20px}
+    .mock{margin-top:24px; border-radius:20px; border:1px solid var(--line); background:var(--card);
+      padding:18px; display:grid; grid-template-columns:repeat(3, 1fr); gap:18px}
+    .screen{aspect-ratio:9/16; background:linear-gradient(160deg,#f2eadf,#e6dbc9);
+      border:1px solid #e1d7c7; border-radius:18px; position:relative; overflow:hidden}
+    .screen:before{
+      content:"App‑Screenshot"; position:absolute; inset:auto 0 10px 0; text-align:center; color:#7a6b56; font-size:14px;
+    }
+    .section{padding:40px 0}
+    .grid{display:grid; gap:16px}
+    @media(min-width:900px){ .grid.cols-3{grid-template-columns:repeat(3,1fr)} }
+    .card{background:var(--card); border:1px solid var(--line); border-radius:16px; padding:18px}
+    .card h3{margin:2px 0 6px; font-size:18px}
+    .muted{color:var(--muted)}
+    .steps{counter-reset: s}
+    .step{position:relative; padding-left:40px}
+    .step:before{counter-increment:s; content:counter(s);
+      position:absolute; left:0; top:0; width:28px; height:28px; border-radius:999px;
+      background:var(--accent); color:#fff; display:grid; place-items:center; font-weight:700}
+    blockquote{
+      margin:0; padding:16px 18px; border-left:4px solid var(--accent);
+      background:color-mix(in lab, var(--card), var(--accent) 6%); border-radius:8px;
+    }
+    footer.site{border-top:1px solid var(--line); padding:24px 0 48px; color:var(--muted)}
+    .footer-grid{display:grid; gap:16px}
+    @media(min-width:720px){ .footer-grid{grid-template-columns:2fr 1fr 1fr} }
+    .small{font-size:14px}
+    /* simple anchor scroll */
+    html{scroll-behavior:smooth}
+  </style>
+</head>
+<body>
+  <header class="site">
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <h1>Circle of Zen</h1>
+      </div>
+      <nav aria-label="Hauptnavigation">
+        <a href="#features">Funktionen</a>
+        <a href="#how">So funktioniert’s</a>
+        <a href="#faq">FAQ</a>
+        <a href="#support">Support</a>
+        <a class="cta ghost" href="#download" aria-label="Zum Download-Bereich">Download</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h2>Achtsam zeichnen. <br>Präzise entspannen.</h2>
+        <p>Zeichne Ensō‑Kreise, Dreiecke und Quadrate freihand. Erhalte Genauigkeits‑Feedback, übe im Trainingsmodus
+           und verfolge deinen Fortschritt im Verlauf.</p>
+        <div class="badges" id="download">
+          <a class="badge-appstore" href="#" aria-label="Im App Store laden (Link einsetzen)">
+            <!-- Simple Apple glyph -->
+            <svg viewBox="0 0 512 512" aria-hidden="true"><path fill="currentColor" d="M349 136c-22 26-39 62-32 98 35 3 69-20 88-45 21-27 37-63 31-99-35-1-76 22-87 46zM441 386c-13 30-20 43-38 69-25 37-54 84-93 85-35 1-45-22-93-22-48 0-59 22-95 23-39 2-69-40-94-77C-8 395-12 284 35 226c26-34 66-56 106-57 41-1 80 24 93 24 12 0 53-29 90-25 15 1 57 6 84 45-2 1-50 29-49 86 0 69 60 92 62 93z"/></svg>
+            <span>Im App&nbsp;Store</span>
+          </a>
+          <a class="cta" href="#support">Support</a>
+        </div>
+        <div class="mock" aria-hidden="true">
+          <div class="screen"></div><div class="screen"></div><div class="screen"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="features">
+      <div class="container">
+        <div class="grid cols-3">
+          <div class="card">
+            <h3>Freihand‑Formen</h3>
+            <p class="muted">Kreis, Dreieck &amp; Quadrat – minimalistisch gestaltet und angenehm zu zeichnen.</p>
+          </div>
+          <div class="card">
+            <h3>Genauigkeits‑Feedback</h3>
+            <p class="muted">Präzise Auswertung deiner Zeichnung – nachvollziehbar und motivierend.</p>
+          </div>
+          <div class="card">
+            <h3>Trainingsmodus</h3>
+            <p class="muted">Fokussiertes Üben mit optionalen Grenzen für tägliche Versuche.</p>
+          </div>
+          <div class="card">
+            <h3>Verlauf &amp; Teilen</h3>
+            <p class="muted">Sieh deine Entwicklung und teile Highlights mit Freund:innen.</p>
+          </div>
+          <div class="card">
+            <h3>Barrierearm</h3>
+            <p class="muted">Klares Design, haptisches Feedback und System‑Schriftarten.</p>
+          </div>
+          <div class="card">
+            <h3>Datenschutz</h3>
+            <p class="muted">Keine unnötigen Daten – transparent und nachvollziehbar.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="how">
+      <div class="container">
+        <h3>So funktioniert’s</h3>
+        <div class="grid">
+          <div class="card steps">
+            <div class="step"><strong>App öffnen</strong><br><span class="muted">Wähle eine Form und atme einmal tief durch.</span></div>
+            <div class="step" style="margin-top:10px"><strong>Form zeichnen</strong><br><span class="muted">Zeichne frei aus dem Handgelenk – ohne perfektionistischen Druck.</span></div>
+            <div class="step" style="margin-top:10px"><strong>Feedback erhalten</strong><br><span class="muted">Sieh, wie nah du am Ideal bist, und übe im Trainingsmodus.</span></div>
+          </div>
+          <div class="card">
+            <h3>Warum Ensō?</h3>
+            <p class="muted">Der japanische Ensō‑Kreis steht für Präsenz, Einfachheit und Akzeptanz. Eine tägliche, kleine Übung – für spürbar mehr Ruhe.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="container">
+        <h3>FAQ</h3>
+        <div class="grid">
+          <div class="card">
+            <h4>Ist Circle of Zen kostenlos?</h4>
+            <p class="muted">Ja. Optional gibt es ein Pro‑Upgrade mit erweiterten Funktionen (z. B. unbegrenzte Versuche und Trainingsmodus).</p>
+          </div>
+          <div class="card">
+            <h4>Wie stelle ich Käufe wieder her?</h4>
+            <p class="muted">In der App unter <em>Einstellungen → Käufe wiederherstellen</em>. Bitte mit derselben Apple‑ID angemeldet sein.</p>
+          </div>
+          <div class="card">
+            <h4>Auf welchen Geräten läuft die App?</h4>
+            <p class="muted">Auf iPhone mit iOS 11 oder neuer. Optimiert für aktuelle iOS‑Versionen.</p>
+          </div>
+        </div>
+        <blockquote style="margin-top:14px">„Eine Minute zeichnen, einmal durchatmen – genau was ich gebraucht habe.“</blockquote>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site" id="support">
+    <div class="container footer-grid">
+      <div>
+        <strong>Support</strong>
+        <p class="small">
+          Fragen oder Feedback? Schreib uns an
+          <a href="mailto:support@circleofzen.app">support@circleofzen.app</a> oder besuche die
+          <a href="/support/">Support‑Seite</a>.
+        </p>
+      </div>
+      <div>
+        <strong>Rechtliches</strong>
+        <p class="small"><a href="/datenschutz/">Datenschutzerklärung</a><br><a href="/agb/">Nutzungsbedingungen</a><br><a href="/impressum/">Impressum</a></p>
+      </div>
+      <div>
+        <strong>Folge uns</strong>
+        <p class="small"><a href="#" aria-label="Instagram (Link einsetzen)">Instagram</a><br><a href="#" aria-label="TikTok (Link einsetzen)">TikTok</a></p>
+      </div>
+    </div>
+    <div class="container" style="margin-top:10px">
+      <p class="small">© <span id="y"></span> Circle of Zen</p>
+    </div>
+  </footer>
+
+  <script>
+    // set year in footer
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+
+  <!-- Optional: JSON-LD for a Mobile App landing (adjust as needed) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Circle of Zen",
+    "applicationCategory": "MobileApplication",
+    "operatingSystem": "iOS",
+    "description": "Achtsamkeits-App zum Freihandzeichnen von Ensō-Kreisen und weiteren Formen mit Genauigkeits-Feedback und Trainingsmodus.",
+    "url": "https://circleofzen.app/",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" }
+  }
+  </script>
+</body>
+</html>
