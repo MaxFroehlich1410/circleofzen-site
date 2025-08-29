@@ -59,9 +59,8 @@
       padding:18px; display:grid; grid-template-columns:repeat(3, 1fr); gap:18px}
     .screen{aspect-ratio:9/16; background:linear-gradient(160deg,#f2eadf,#e6dbc9);
       border:1px solid #e1d7c7; border-radius:18px; position:relative; overflow:hidden}
-    .screen:before{
-      content:"App‑Screenshot"; position:absolute; inset:auto 0 10px 0; text-align:center; color:#7a6b56; font-size:14px;
-    }
+    .screen:before{content:none}
+    .screen img{width:100%; height:100%; object-fit:cover; display:block}
     .section{padding:40px 0}
     .grid{display:grid; gap:16px}
     @media(min-width:900px){ .grid.cols-3{grid-template-columns:repeat(3,1fr)} }
@@ -117,7 +116,9 @@
           <a class="cta" href="#support">Support</a>
         </div>
         <div class="mock" aria-hidden="true">
-          <div class="screen"></div><div class="screen"></div><div class="screen"></div>
+          <div class="screen"><img src="IMG_0632.PNG" alt="App‑Screenshot 1" loading="lazy" decoding="async"></div>
+          <div class="screen"><img src="IMG_31C764ED01D2-1.jpeg" alt="App‑Screenshot 2" loading="lazy" decoding="async"></div>
+          <div class="screen"><img src="IMG_0621.PNG" alt="App‑Screenshot 3" loading="lazy" decoding="async"></div>
         </div>
       </div>
     </section>
@@ -176,7 +177,7 @@
         <div class="grid">
           <div class="card">
             <h4>Ist Circle of Zen kostenlos?</h4>
-            <p class="muted">Ja. Optional gibt es ein Pro‑Upgrade mit erweiterten Funktionen (z. B. unbegrenzte Versuche und Trainingsmodus).</p>
+            <p class="muted">Ja. Optional gibt es ein Pro‑Upgrade für einmalig 2,99€ mit erweiterten Funktionen (z. B. unbegrenzte Versuche und Trainingsmodus).</p>
           </div>
           <div class="card">
             <h4>Wie stelle ich Käufe wieder her?</h4>
