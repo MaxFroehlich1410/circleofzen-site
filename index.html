@@ -51,6 +51,7 @@
          box-shadow: 0 4px 14px rgba(0,0,0,.06); text-decoration:none; font-weight:600}
     .cta:hover{filter:brightness(0.98)}
     .ghost{background:transparent; color:var(--accent-ink); border:1px solid var(--accent);}
+    .dl-mobile{display:none}
     .hero{padding:72px 0 42px}
     .hero h2{font-size:40px; line-height:1.15; margin:0 0 12px}
     .hero p{font-size:18px; color:var(--muted); margin:0 0 20px}
@@ -85,6 +86,15 @@
     .small{font-size:14px}
     /* simple anchor scroll */
     html{scroll-behavior:smooth}
+
+    /* Mobile header layout: first row = nav links, second row = brand + Download */
+    @media(max-width:720px){
+      .nav{flex-direction:column; align-items:stretch; gap:8px}
+      .brand{order:2}
+      nav{order:1; display:flex; flex-wrap:wrap; gap:12px; justify-content:space-between}
+      nav .cta{display:none}
+      .dl-mobile{display:inline-flex; margin-left:auto}
+    }
   </style>
 </head>
 <body>
@@ -93,6 +103,7 @@
       <div class="brand">
         <div class="logo" aria-hidden="true"></div>
         <h1>Circle of Zen</h1>
+        <a class="cta dl-mobile" href="#download" aria-label="Zum Download-Bereich">Download</a>
       </div>
       <nav aria-label="Hauptnavigation">
         <a href="#features">Funktionen</a>
